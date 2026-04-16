@@ -3,15 +3,12 @@
   connection: network_cli
   gather_facts: no
   tasks:
-   - name: No vlan 132
-     cisco.ios.ios_config:
-      parents: no vlan 132
-       lines:
-        - no vlan 132
-        - no name ILO_SERVER
-         
-   - name: No interface Vlan 132
-     cisco.ios.ios_config:
-      parents: no interface vlan 132
+    - name: No vlan 132
+      cisco.ios.ios_config:  # Thêm cisco.ios. vào trước
         lines:
-          - do wr
+          - no vlan 132
+
+    - name: No interface Vlan 132
+      cisco.ios.ios_config:  # Thêm cisco.ios. vào trước
+        lines:
+          - no interface vlan 132
