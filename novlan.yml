@@ -1,0 +1,16 @@
+- name: No vlan and interface vlan
+  hosts: all
+  connection: network_cli
+  gather_facts: no
+  tasks:
+    - name: No vlan 132
+      ios_config:
+        parents: no vlan 132
+        lines:
+          - no vlan 132
+          - no name ILO_SERVER
+    - name: No interface Vlan 132
+      ios_config:
+        parents: no interface vlan 132
+        lines:
+          - do wr
